@@ -23,13 +23,13 @@ export function Navigation({
   }[] = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'chat', label: 'AI Chat', icon: MessageSquare },
-    { id: 'studio', label: '100% Tahlil', icon: Scan, isPrimary: true },
+    { id: 'studio', label: 'Studio', icon: Sparkles, isPrimary: true },
     { id: 'explore', label: 'Turmaklar', icon: Compass },
     { id: 'profile', label: 'Profile', icon: User },
   ];
 
   return (
-    <nav aria-label="Bottom Navigation" className="sticky bottom-0 left-0 right-0 z-40 px-3 pb-3 pt-1 pointer-events-auto">
+    <nav aria-label="Bottom Navigation" className="sticky bottom-0 left-0 right-0 z-40 px-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] pt-1 pointer-events-auto">
       <div className="bg-[#141419]/95 backdrop-blur-xl border border-white/10 rounded-full px-2 py-1.5 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
         {tabs.map((tab) => {
           const Icon = tab.icon;

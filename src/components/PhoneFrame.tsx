@@ -57,18 +57,18 @@ export function PhoneFrame({ children }: PhoneFrameProps) {
         className={`relative w-full bg-[#0a0a0d] overflow-hidden transition-all duration-300 flex flex-col ${
           isFullWindow
             ? 'max-w-2xl h-[95vh] rounded-3xl border border-white/10 shadow-2xl'
-            : 'max-w-[430px] h-[100dvh] sm:h-[890px] sm:rounded-[48px] sm:border-[8px] sm:border-[#1c1c22] sm:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(245,197,24,0.1)]'
+            : 'w-full min-h-[100dvh] h-[100dvh] sm:h-[890px] sm:max-w-[430px] sm:rounded-[48px] sm:border-[8px] sm:border-[#1c1c22] sm:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(245,197,24,0.1)]'
         }`}
       >
-        {/* Phone Speaker & Dynamic Island (visible on framed mobile view) */}
+        {/* Phone Speaker & Dynamic Island (ONLY visible on desktop framed view) */}
         {!isFullWindow && (
           <div className="hidden sm:block absolute top-2.5 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#000000] rounded-full z-50 pointer-events-none">
             <div className="absolute right-3.5 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#0d0d12] border border-white/10"></div>
           </div>
         )}
 
-        {/* Mobile Status Bar */}
-        <header className="shrink-0 h-11 px-6 flex items-center justify-between text-xs font-semibold text-zinc-200 select-none z-40 bg-[#0a0a0d]/90 backdrop-blur-md">
+        {/* Mobile Status Bar (ONLY visible on desktop frame, completely hidden on real phones) */}
+        <header className="hidden sm:flex shrink-0 h-11 px-6 items-center justify-between text-xs font-semibold text-zinc-200 select-none z-40 bg-[#0a0a0d]/90 backdrop-blur-md">
           <span className="tracking-tight">{currentTime}</span>
           <div className="flex items-center gap-2">
             <Signal className="w-3.5 h-3.5 text-zinc-300" />
@@ -85,8 +85,8 @@ export function PhoneFrame({ children }: PhoneFrameProps) {
           {children}
         </main>
 
-        {/* iOS Home Indicator Bar */}
-        <footer className="shrink-0 h-5 w-full flex items-center justify-center bg-[#0a0a0d] z-30 pointer-events-none">
+        {/* iOS Home Indicator Bar (ONLY visible on desktop frame) */}
+        <footer className="hidden sm:flex shrink-0 h-5 w-full items-center justify-center bg-[#0a0a0d] z-30 pointer-events-none">
           <div className="w-32 h-1 bg-white/20 rounded-full"></div>
         </footer>
       </div>

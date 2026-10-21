@@ -161,7 +161,7 @@ Qanday savolingiz bor? Quyidagi mavzulardan birini tanlashingiz yoki o'zingiz yo
   return (
     <div className="flex-1 flex flex-col h-full text-white relative">
       {/* Chat Top Header */}
-      <div className="px-4 py-3 bg-[#0d0d12]/95 backdrop-blur-md border-b border-white/8 flex items-center justify-between sticky top-0 z-20">
+      <div className="px-4 pt-[max(1.25rem,env(safe-area-inset-top,0px))] sm:pt-3.5 pb-3 bg-[#0d0d12]/95 backdrop-blur-md border-b border-white/8 flex items-center justify-between sticky top-0 z-20 shadow-md">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-2xl bg-[#F5C518]/15 border border-[#F5C518]/40 flex items-center justify-center text-[#F5C518] shadow-md">
             <Scissors className="w-5 h-5" />

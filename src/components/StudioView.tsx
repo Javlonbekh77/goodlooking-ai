@@ -217,7 +217,7 @@ export function StudioView({
     const timer1 = setTimeout(() => {
       setStatus('analyzing');
       setProgressPercent(40);
-      setStatusMessage('OpenAI gpt-image-2.5-sunburst modeliga uzatilmoqda...');
+      setStatusMessage('AI modeliga uzatilmoqda...');
     }, 1200);
 
     const timer2 = setTimeout(() => {
@@ -366,18 +366,18 @@ export function StudioView({
   ];
 
   return (
-    <div className="flex-1 flex flex-col px-4 pt-3 pb-24 space-y-5 text-white">
-      {/* Studio Header & Model Badge */}
+    <div className="flex-1 flex flex-col px-4 pt-[max(1.25rem,env(safe-area-inset-top,0px))] sm:pt-4 pb-24 space-y-5 text-white">
+      {/* Studio Header */}
       <div className="flex items-center justify-between">
         <div>
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F5C518]/15 border border-[#F5C518]/30 text-[10px] font-bold text-[#F5C518] uppercase tracking-wider mb-1">
-            <Zap className="w-3 h-3 fill-[#F5C518]" />
-            Asosiy Model: OpenAI GPT Image 2.5 Sunburst
+            <Sparkles className="w-3 h-3 fill-[#F5C518]" />
+            AI Hairstyle Studio
           </div>
-          <h1 className="text-xl font-bold text-white tracking-tight">AI Hairstyle Studio</h1>
+          <h1 className="text-xl font-bold text-white tracking-tight">Soch Turmagini Sinab Ko‘rish</h1>
         </div>
         <div className="w-9 h-9 rounded-full bg-[#16161c] border border-white/10 flex items-center justify-center text-[#F5C518] shadow-md">
-          <Sparkles className="w-4 h-4" />
+          <Scissors className="w-4 h-4" />
         </div>
       </div>
 
@@ -911,6 +911,45 @@ export function StudioView({
 
       {/* Step 3: Generation & Action Button */}
       <div className="space-y-3">
+        {/* Selected Pair Preview: Client Photo + Chosen Hairstyle Template */}
+        {photoDataUrl && (
+          <div className="bg-[#121217] border border-white/10 rounded-2xl p-3 flex items-center justify-between gap-2 shadow-md">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-black border border-white/10 shrink-0">
+                <Image src={photoDataUrl} alt="Mijoz surati" fill className="object-cover" />
+              </div>
+              <div className="text-[11px] leading-tight">
+                <p className="text-zinc-400">1. Mijoz surati</p>
+                <p className="text-white font-semibold">Yuklangan</p>
+              </div>
+            </div>
+
+            <div className="text-[#F5C518] font-bold text-sm shrink-0 px-1">➔</div>
+
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-black border border-[#F5C518]/40 shrink-0">
+                <Image
+                  src={
+                    styleMode === 'custom_upload' && customStyleImage
+                      ? customStyleImage
+                      : selectedStyle.imageUrl
+                  }
+                  alt="Tanlangan Andoza"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="text-[11px] leading-tight min-w-0">
+                <p className="text-zinc-400">2. Tanlangan qolip</p>
+                <p className="text-[#F5C518] font-semibold truncate max-w-[110px]">
+                  {styleMode === 'custom_upload' && customStyleImage
+                    ? 'O‘z stilingiz'
+                    : selectedStyle.name}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
         {/* OpenAI Balance Exhausted / Quota Error Alert */}
         {isQuotaExhausted && (
           <div className="bg-amber-950/40 border border-amber-500/50 rounded-2xl p-4 text-xs text-amber-200 space-y-2.5 shadow-xl">
@@ -971,8 +1010,8 @@ export function StudioView({
               ></div>
             </div>
 
-            <p className="text-[10px] text-zinc-500 text-center">
-              <code>gpt-image-2.5-sunburst</code> ikki rasm asosida yuzni saqlab soch ko‘chirmoqda...
+            <p className="text-[10px] text-zinc-400 text-center">
+              Mijoz yuzi 100% saqlanib, tanlangan soch qolipi ko‘chirilmoqda...
             </p>
           </div>
         )}
@@ -991,12 +1030,12 @@ export function StudioView({
           {isGenerating ? (
             <>
               <RefreshCw className="w-4 h-4 animate-spin text-black" />
-              OpenAI Sunburst Generatsiya Qilmoqda...
+              Soch Turmagi Yaratilmoqda...
             </>
           ) : (
             <>
               <Sparkles className="w-4 h-4" />
-              Sochni O‘zgartirish (OpenAI Sunburst)
+              Sochni O‘zgartirish
             </>
           )}
         </button>

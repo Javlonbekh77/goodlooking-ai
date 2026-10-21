@@ -55,11 +55,11 @@ export function HomeView({
   });
 
   return (
-    <div className="flex-1 flex flex-col px-4 pt-3 pb-24 space-y-5 text-white">
+    <div className="flex-1 flex flex-col px-4 pt-[max(1.25rem,env(safe-area-inset-top,0px))] sm:pt-4 pb-24 space-y-5 text-white">
       {/* Top Header: Avatar + Welcome + Notification Bell */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#F5C518]/60 shadow-md">
+          <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#F5C518]/70 shadow-md">
             <Image
               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
               alt="User Avatar"
@@ -70,9 +70,9 @@ export function HomeView({
             />
           </div>
           <div>
-            <p className="text-xs text-zinc-400 font-medium tracking-wide">Welcome</p>
-            <h1 className="text-base font-bold text-white tracking-tight flex items-center gap-1.5">
-              Hay, Kelly <span className="animate-pulse">👋</span>
+            <p className="text-[10px] font-bold text-[#F5C518] uppercase tracking-widest">GoodLooking AI</p>
+            <h1 className="text-base font-extrabold text-white tracking-tight flex items-center gap-1.5">
+              Xush kelibsiz <span className="animate-pulse">👋</span>
             </h1>
           </div>
         </div>
@@ -87,27 +87,7 @@ export function HomeView({
         </button>
       </div>
 
-      {/* AI Status pill indicator */}
-      <div className="flex items-center justify-between bg-[#131318] border border-white/8 px-3.5 py-1.5 rounded-full text-xs">
-        <div className="flex items-center gap-2">
-          <span
-            className={`w-2 h-2 rounded-full ${
-              isAiConfigured
-                ? 'bg-emerald-400 shadow-[0_0_8px_#34d399]'
-                : 'bg-amber-400 shadow-[0_0_8px_#fbbf24]'
-            }`}
-          ></span>
-          <span className="text-zinc-300 font-medium">
-            {isAiConfigured ? 'OpenAI GPT Image 2.5 Sunburst Ready' : 'OpenAI Key Sozlanmagan'}
-          </span>
-        </div>
-        <button
-          onClick={() => onNavigateTab('profile')}
-          className="text-[#F5C518] hover:underline text-[11px] font-semibold"
-        >
-          {isAiConfigured ? 'Model Info' : 'Setup Key →'}
-        </button>
-      </div>
+
 
       {/* Search Bar */}
       <div className="relative">

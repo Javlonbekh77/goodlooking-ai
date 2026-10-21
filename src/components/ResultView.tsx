@@ -95,15 +95,15 @@ export function ResultView({
   };
 
   return (
-    <div className="flex-1 flex flex-col px-4 pt-3 pb-24 space-y-4 text-white">
+    <div className="flex-1 flex flex-col px-4 pt-[max(1.25rem,env(safe-area-inset-top,0px))] sm:pt-4 pb-24 space-y-4 text-white">
       {/* Result Header */}
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-[11px] font-bold text-[#F5C518] tracking-widest uppercase">
-            Transformation Result
+          <span className="text-[10px] font-bold text-[#F5C518] tracking-widest uppercase block">
+            AI Transformatsiya Natijasi
           </span>
-          <h1 className="text-xl font-bold text-white tracking-tight flex items-center gap-1.5">
-            Your New Look <Sparkles className="w-4 h-4 text-[#F5C518]" />
+          <h1 className="text-xl font-extrabold text-white tracking-tight flex items-center gap-1.5">
+            Yangi Soch Turmagingiz <Sparkles className="w-4 h-4 text-[#F5C518]" />
           </h1>
         </div>
 

@@ -32,7 +32,7 @@ export function ProfileView({
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   return (
-    <div className="flex-1 flex flex-col px-4 pt-3 pb-24 space-y-4 text-white">
+    <div className="flex-1 flex flex-col px-4 pt-[max(1.25rem,env(safe-area-inset-top,0px))] sm:pt-4 pb-24 space-y-4 text-white">
       {/* Top Header */}
       <div className="flex items-center justify-between">
         <button
@@ -42,8 +42,8 @@ export function ProfileView({
         >
           <ArrowLeft className="w-4 h-4" />
         </button>
-        <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
-          Profile & Settings
+        <span className="text-xs font-bold text-zinc-300 uppercase tracking-widest">
+          Profil va Sozlamalar
         </span>
         <div className="w-9"></div>
       </div>
@@ -72,64 +72,28 @@ export function ProfileView({
         </div>
       </div>
 
-      {/* OpenAI Backend Configuration Card */}
+      {/* AI Hairstyle Engine Card */}
       <div className="bg-[#141419] border border-white/10 rounded-3xl p-4 space-y-3 shadow-lg">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-xl bg-[#F5C518]/10 border border-[#F5C518]/20 flex items-center justify-center text-[#F5C518]">
-              <Key className="w-4 h-4" />
+              <Sparkles className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-xs font-bold text-white">OpenAI Sunburst Integration</h3>
-              <p className="text-[10px] text-zinc-400">Asosiy Model Holati</p>
+              <h3 className="text-xs font-bold text-white">AI Transformatsiya Tizimi</h3>
+              <p className="text-[10px] text-zinc-400">Ultra-aniq fotorealizm</p>
             </div>
           </div>
 
-          {isAiConfigured ? (
-            <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1">
-              <CheckCircle2 className="w-3 h-3" /> Faol
-            </span>
-          ) : (
-            <span className="bg-amber-500/20 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-amber-500/30 flex items-center gap-1">
-              <AlertTriangle className="w-3 h-3" /> Kalit kiritilmagan
-            </span>
-          )}
+          <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1">
+            <CheckCircle2 className="w-3 h-3" /> Faol
+          </span>
         </div>
 
-        <div className="bg-[#0e0e13] border border-white/5 rounded-2xl p-3 text-xs space-y-2">
-          <div className="flex items-center justify-between text-zinc-300">
-            <span>Model:</span>
-            <code className="text-[11px] text-[#F5C518] bg-black/40 px-2 py-0.5 rounded border border-white/5">
-              gpt-image-2.5-sunburst
-            </code>
-          </div>
-
-          <p className="text-[11px] text-zinc-400 leading-relaxed">
-            Mijoz portreti (Image 1) va tanlangan yoki yuklangan soch qolipi (Image 2) OpenAI Images Edit API orqali yuboriladi. Mijoz yuzi va shaxsi 100% saqlanib, faqatgina soch turmagi fotorealistik tarzda almashtiriladi.
+        <div className="bg-[#0e0e13] border border-white/5 rounded-2xl p-3 text-xs">
+          <p className="text-[11px] text-zinc-300 leading-relaxed">
+            Mijoz portreti va tanlangan soch qolipi asosida yuz shakli, soch chiziqlari va kiyim 100% tabiiy saqlanadi. Har bir soch tolasi fotorealistik tarzda shakllantiriladi.
           </p>
-
-          <div className="bg-black/60 p-2.5 rounded-xl border border-white/10 font-mono text-[11px] text-zinc-300 overflow-x-auto">
-            OPENAI_API_KEY=sk-proj-C2cQ...OKAA (Xavfsiz serverda)
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between pt-1">
-          <a
-            href="https://platform.openai.com/billing"
-            target="_blank"
-            rel="noreferrer"
-            className="text-xs text-[#F5C518] hover:underline flex items-center gap-1 font-medium"
-          >
-            OpenAI Balansini tekshirish <ExternalLink className="w-3 h-3" />
-          </a>
-          <a
-            href="https://platform.openai.com/api-keys"
-            target="_blank"
-            rel="noreferrer"
-            className="text-xs text-zinc-400 hover:text-white flex items-center gap-1"
-          >
-            API Kalitlar <ExternalLink className="w-3 h-3" />
-          </a>
         </div>
       </div>
 
